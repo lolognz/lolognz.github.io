@@ -62,41 +62,6 @@ section {
     display: block;
 }
 
-.section {
-    height: 100vh;
-}
-
-section {
-    width: 100%;
-    padding: 0 7%;
-    display: table;
-    margin: 0;
-    max-width: none;
-    height: 100vh;
-}
-
-.intro {
-    height: 100vh;
-}
-
-#section-header {
-    background-color: rgb(219, 217, 217);
-}
-
-.content-header {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-
-#section-about {
-    background-color: grey;
-}
-
-#section-resume {
-    background-color: lightgrey;
-}
-
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

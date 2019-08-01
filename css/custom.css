@@ -1,5 +1,28 @@
+.section {
+    height: 100vh;
+}
+
+section {
+    width: 100%;
+    padding: 0 7%;
+    display: table;
+    margin: 0;
+    max-width: none;
+    height: 100vh;
+}
+
+.intro {
+    height: 100vh;
+}
+
 #section-header {
-    background-color: lightgrey;
+    background-color: rgb(219, 217, 217);
+}
+
+.content-header {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 #section-about {
@@ -8,4 +31,13 @@
 
 #section-resume {
     background-color: lightgrey;
+}
+
+.navbar {
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    /* Set the navbar to fixed position */
+    width: 100%;
+    /* Full width */
 }
