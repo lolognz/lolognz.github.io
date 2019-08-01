@@ -1,0 +1,29 @@
+section {
+    width: 100%;
+    padding: 0 7%;
+    display: table;
+    margin: 0;
+    max-width: none;
+    height: 100vh;
+}
+
+.intro {
+    height: 100vh;
+}
+
+#section-header {
+    background-color: rgb(219, 217, 217);
+}
+
+.content-header {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#section-about {
+    background-color: grey;
+}
+
+#section-resume {
+    background-color: lightgrey;
+}
