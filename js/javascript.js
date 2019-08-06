@@ -39,6 +39,6 @@ window.onscroll = function() {
 /* scroll to the top of the document
 /*----------------------------------------------------*/
 function topFunction() {
-    document.body.scrollTo({ top: 0, behavior: "smooth" }); // For Safari
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" }); // For Firefox, Chrome, Edge
+    window.scroll({ top: 0, behavior: "smooth" }); // For Safari
+    //document.documentElement.scrollTo({ top: 0, behavior: "smooth" }); // For Firefox, Chrome, Edge
 }
