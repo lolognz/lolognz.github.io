@@ -104,3 +104,25 @@ section {
     background-color: #555;
     /* Add a dark-grey background on hover */
 }
+
+
+/*-------------------------------------*/
+
+
+/* Download button */
+
+
+/*-------------------------------------*/
+
+#downloadBtn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#downloadBtn:hover {
+    background-color: RoyalBlue;
+}
