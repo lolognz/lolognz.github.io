@@ -188,7 +188,10 @@
 
         function nameSection(jsonObj) {
             var myH1 = document.createElement('h1');
+            var myP = document.createElement('p');
             myH1.textContent = jsonObj['name'];
+            section.appendChild(myH1);
+            myP.textContent = 'longText: ' + jsonObj['text'];
             section.appendChild(myH1);
         }
 
