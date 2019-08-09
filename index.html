@@ -181,9 +181,9 @@
         request.responseType = 'json';
         request.send();
         request.onload = function() {
-            var superHeroes = request.response;
-            nameSection(superHeroes);
-            textSection(superHeroes);
+            var myData = request.response;
+            nameSection(myData);
+            textSection(myData);
         }
 
         function nameSection(jsonObj) {
@@ -194,7 +194,7 @@
 
         function textSection(jsonObj) {
             var myP = document.createElement('p');
-            myP.textContent = jsonObj['text'];
+            myP.textContent = 'longText: ' + jsonObj['text'];
             section.appendChild(myH1);
         }
     </script>
