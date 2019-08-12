@@ -187,15 +187,15 @@
         }
 
         function nameSection(jsonObj) {
-            var myH1 = document.querySelector('#name-header'); //document.createElement('h1');
+            var myH1 = document.querySelector('#name-header');
             myH1.textContent = jsonObj['name'];
             section.appendChild(myH1);
         }
 
         function textSection(jsonObj) {
-            var myP = document.querySelector('#text-header'); //document.createElement('p');
-            myP.textContent = 'longText: ' + jsonObj['text'];
-            section.appendChild(myP);
+            var myP = document.querySelector('#text-header');
+            myP.textContent = jsonObj['text'];
+            myP.innerHTML = myP.textContent;
         }
     </script>
 
