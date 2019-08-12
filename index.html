@@ -189,7 +189,7 @@
         function nameSection(jsonObj) {
             var myH1 = document.querySelector('#name-header');
             myH1.textContent = jsonObj['name'];
-            section.appendChild(myH1);
+            myH1.innerHTML = myH1.textContent;
         }
 
         function textSection(jsonObj) {
