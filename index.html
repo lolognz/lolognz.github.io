@@ -71,8 +71,8 @@
     <section class="intro" id="section-header">
         <div class="content-header">
             <div class="col-sm-12">
-                <h1>My Website</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h1 id="name-header">My Website</h1>
+                <p id="text-header">Lorem ipsum.</p>
             </div>
         </div>
     </section>
@@ -174,7 +174,7 @@
 
     <!-- JSON SCRIPT -->
     <script>
-        var section = document.querySelector('#jsontest');
+        var section = document.querySelector('#section-header');
         var requestURL = 'data/data.json';
         var request = new XMLHttpRequest();
         request.open('GET', requestURL);
@@ -187,13 +187,13 @@
         }
 
         function nameSection(jsonObj) {
-            var myH1 = document.createElement('h1');
+            var myH1 = document.querySelector('#name-header'); //document.createElement('h1');
             myH1.textContent = jsonObj['name'];
             section.appendChild(myH1);
         }
 
         function textSection(jsonObj) {
-            var myP = document.createElement('p');
+            var myP = document.querySelector('#text-header'); //document.createElement('p');
             myP.textContent = 'longText: ' + jsonObj['text'];
             section.appendChild(myP);
         }
