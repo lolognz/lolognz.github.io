@@ -43,29 +43,27 @@ section {
 /*-------------------------------------*/
 
 #navbar {
+    background-color: transparent;
     position: fixed;
-    /* Make it stick/fixed */
-    top: 0;
-    /* Stay on top */
+    top: -80px;
     width: 100%;
-    /* Full width */
+    display: block;
     transition: top 0.3s;
-    /* Transition effect when sliding down (and up) */
 }
 
 #navbar a {
-    /* Style the navbar links */
     float: left;
     display: block;
-    color: black;
+    color: #f2f2f2;
     text-align: center;
     padding: 15px;
     text-decoration: none;
+    font-size: 17px;
 }
 
 #navbar a:hover {
-    background-color: black;
-    color: #ddd;
+    background-color: #ddd;
+    color: black;
 }
 
 

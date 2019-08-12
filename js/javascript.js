@@ -11,27 +11,27 @@ $(window).on('resize', function() {
 });
 
 /*----------------------------------------------------*/
-/* When the user scrolls down, hide the navbar. 
-/* When the user scrolls up, show the navbar */
+/* When the user scrolls down 20px from the top of the document, show the button
+/* When the user scrolls down 20px from the top of the document, slide down the navbar
 /*----------------------------------------------------*/
-var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        document.getElementById("navbar").style.top = "0";
-    } else {
-        document.getElementById("navbar").style.top = "-50px";
-    }
-    prevScrollpos = currentScrollPos;
-    /*----------------------------------------------------*/
-    /* When the user scrolls down 20px from the top of 
-    /* the document, show the button
-    /*----------------------------------------------------*/
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById("myBtn").style.display = "block";
+        document.getElementById("navbar").style.top = "0";
     } else {
         document.getElementById("myBtn").style.display = "none";
+        document.getElementById("navbar").style.top = "-80px";
     }
+
+    var windowheight = $(window).scrollTop();
+    var sectionabout = document.getElementById("section-about").offsetTop;
+
+    if (windowheight >= sectionabout) {
+        document.getElementById("navbar").style.backgroundColor = "#333";
+    } else {
+        document.getElementById("navbar").style.backgroundColor = "transparent";
+    }
+
 }
 
 /*----------------------------------------------------*/
@@ -39,6 +39,5 @@ window.onscroll = function() {
 /* scroll to the top of the document
 /*----------------------------------------------------*/
 function topFunction() {
-    window.scroll({ top: 0, behavior: "smooth" }); // For Safari
-    //document.documentElement.scrollTo({ top: 0, behavior: "smooth" }); // For Firefox, Chrome, Edge
+    window.scroll({ top: 0, behavior: "smooth" });
 }
