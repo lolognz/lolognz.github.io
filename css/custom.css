@@ -124,3 +124,33 @@ section {
 #downloadBtn:hover {
     background-color: RoyalBlue;
 }
+
+
+/*-------------------------------------*/
+
+
+/* Social icons */
+
+
+/*-------------------------------------*/
+
+.social-icons {
+    vertical-align: middle;
+    text-align: center;
+    font-size: x-large;
+}
+
+.social-icons li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.social-icons li a {
+    border-bottom: none;
+}
+
+.social-icons li img {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+}
