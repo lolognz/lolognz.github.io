@@ -1,0 +1,32 @@
+{
+  "title": "Proyectos Destacados",
+  "projects": [
+    {
+      "id": 1,
+      "title": "Sistema de Gestión Empresarial",
+      "description": "Aplicación backend robusta desarrollada con Spring Boot para gestión de recursos empresariales, incluyendo APIs REST escalables y arquitectura de microservicios.",
+      "technologies": ["Java", "Spring Boot", "MySQL", "Docker", "AWS"],
+      "image": "/assets/images/project1.jpg",
+      "github": "https://github.com/lolognz/enterprise-management",
+      "demo": "https://demo.enterprise-management.com"
+    },
+    {
+      "id": 2,
+      "title": "Videojuego Educativo VR",
+      "description": "Experiencia inmersiva de realidad virtual para aprendizaje de matemáticas, desarrollada en Unity con mecánicas gamificadas y seguimiento de progreso.",
+      "technologies": ["Unity", "C#", "VR", "Educational Design"],
+      "image": "/assets/images/project2.jpg",
+      "github": "https://github.com/lolognz/math-vr-game",
+      "demo": "https://mathvr.education"
+    },
+    {
+      "id": 3,
+      "title": "API de Investigación Universitaria",
+      "description": "Sistema backend para gestión de datos de investigación con análisis estadístico automático y generación de reportes dinámicos.",
+      "technologies": ["Java", "Spring", "PostgreSQL", "Apache Kafka"],
+      "image": "/assets/images/project3.jpg",
+      "github": "https://github.com/lolognz/research-api",
+      "demo": "https://research.university.edu"
+    }
+  ]
+}

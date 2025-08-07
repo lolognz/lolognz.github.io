@@ -1,0 +1,14 @@
+{
+  "title": "Sobre Mí",
+  "content": [
+    "Soy un ingeniero de software backend con una trayectoria diversa que abarca desde la investigación universitaria hasta el desarrollo de videojuegos educativos y aplicaciones de realidad virtual.",
+    "Mi experiencia se centra en el ecosistema Java y Spring Boot, donde he desarrollado arquitecturas escalables y robustas para diversas aplicaciones empresariales.",
+    "Me apasiona la tecnología como herramienta para resolver problemas complejos y crear experiencias digitales innovadoras que generen un impacto positivo."
+  ],
+  "highlights": [
+    "5+ años de experiencia en desarrollo backend",
+    "Especializado en Java y Spring Framework",
+    "Experiencia en arquitecturas de microservicios",
+    "Investigación en videojuegos educativos y VR"
+  ]
+}

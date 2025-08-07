@@ -1,0 +1,43 @@
+{
+  "title": "Habilidades Técnicas",
+  "categories": [
+    {
+      "name": "Backend Development",
+      "skills": [
+        { "name": "Java", "level": 9 },
+        { "name": "Spring Boot", "level": 8 },
+        { "name": "Spring Framework", "level": 8 },
+        { "name": "Microservicios", "level": 7 },
+        { "name": "API REST", "level": 9 }
+      ]
+    },
+    {
+      "name": "Bases de Datos",
+      "skills": [
+        { "name": "MySQL", "level": 8 },
+        { "name": "PostgreSQL", "level": 7 },
+        { "name": "MongoDB", "level": 6 },
+        { "name": "Redis", "level": 6 }
+      ]
+    },
+    {
+      "name": "DevOps & Tools",
+      "skills": [
+        { "name": "Docker", "level": 7 },
+        { "name": "Git", "level": 9 },
+        { "name": "Maven", "level": 8 },
+        { "name": "Jenkins", "level": 6 },
+        { "name": "AWS", "level": 6 }
+      ]
+    },
+    {
+      "name": "Frontend & Others",
+      "skills": [
+        { "name": "JavaScript", "level": 7 },
+        { "name": "React", "level": 6 },
+        { "name": "Unity", "level": 7 },
+        { "name": "C#", "level": 6 }
+      ]
+    }
+  ]
+}
