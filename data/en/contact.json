@@ -1,0 +1,44 @@
+{
+  "title": "Contact",
+  "subtitle": "Have a project in mind? Let's talk!",
+  "description": "I'm always open to new opportunities and interesting collaborations. Don't hesitate to reach out.",
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Your full name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "your@email.com"
+    },
+    "subject": {
+      "label": "Subject",
+      "placeholder": "How can I help you?"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Tell me about your project or idea..."
+    },
+    "submit": "Send Message"
+  },
+  "contact_info": [
+    {
+      "type": "email",
+      "label": "Email",
+      "value": "lolo@example.com",
+      "icon": "email"
+    },
+    {
+      "type": "location",
+      "label": "Location",
+      "value": "Spain",
+      "icon": "location"
+    },
+    {
+      "type": "linkedin",
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/lologonzalez",
+      "icon": "linkedin"
+    }
+  ]
+}

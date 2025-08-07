@@ -1,0 +1,30 @@
+{
+  "name": "Lolo González",
+  "title": "Backend Software Engineer",
+  "subtitle": "Specialized in Java, Spring Boot and scalable architectures",
+  "description": "Passionate about creating robust and efficient technological solutions, with experience in university research, educational video games and virtual reality.",
+  "social": [
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://linkedin.com/in/lologonzalez"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/lolognz"
+    }
+  ],
+  "ctas": [
+    {
+      "text": "Download CV",
+      "url": "/assets/cv.pdf",
+      "type": "primary"
+    },
+    {
+      "text": "View Projects",
+      "scrollTo": "projects",
+      "type": "outline"
+    }
+  ]
+}
