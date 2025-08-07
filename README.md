@@ -59,7 +59,7 @@ npm install
 npm run dev
 
 # 4. Abrir en el navegador
-# http://localhost:5173/lolognz.github.io/
+# http://localhost:5173/
 ```
 
 ### Comandos disponibles
