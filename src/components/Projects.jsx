@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
+import { getDataPath } from '../utils/paths';
 
 const ProjectCard = ({ project, index }) => {
   const cardRef = useRef(null);
@@ -176,7 +177,7 @@ const Projects = () => {
   useEffect(() => {
     const loadProjectsData = async () => {
       try {
-        const response = await fetch(`/data/${i18n.language}/projects.json`);
+        const response = await fetch(getDataPath(i18n.language, 'projects.json'));
         const data = await response.json();
         setProjectsData(data);
       } catch (error) {

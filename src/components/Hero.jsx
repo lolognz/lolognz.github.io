@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
+import { getDataPath } from '../utils/paths';
 
 const Hero = () => {
   const { i18n } = useTranslation();
@@ -14,7 +15,7 @@ const Hero = () => {
   useEffect(() => {
     const loadHeroData = async () => {
       try {
-        const response = await fetch(`/data/${i18n.language}/hero.json`);
+        const response = await fetch(getDataPath(i18n.language, 'hero.json'));
         const data = await response.json();
         setHeroData(data);
       } catch (error) {
