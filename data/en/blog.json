@@ -1,0 +1,16 @@
+{
+  "title": "Blog",
+  "subtitle": "Articles and tutorials about backend development",
+  "placeholder": {
+    "title": "Coming Soon...",
+    "description": "I'll be sharing articles about backend development, software architectures, Java/Spring best practices, and experiences from research projects.",
+    "comingSoon": "Stay tuned for quality technical content!"
+  },
+  "categories": [
+    "Java & Spring Boot",
+    "Software Architectures",
+    "Microservices",
+    "API Development",
+    "DevOps & Deployment"
+  ]
+}

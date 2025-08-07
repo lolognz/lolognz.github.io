@@ -1,0 +1,44 @@
+{
+  "title": "Contacto",
+  "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+  "description": "Estoy siempre abierto a nuevas oportunidades y colaboraciones interesantes. No dudes en contactarme.",
+  "form": {
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Tu nombre completo"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "tu@email.com"
+    },
+    "subject": {
+      "label": "Asunto",
+      "placeholder": "¿En qué puedo ayudarte?"
+    },
+    "message": {
+      "label": "Mensaje",
+      "placeholder": "Cuéntame sobre tu proyecto o idea..."
+    },
+    "submit": "Enviar Mensaje"
+  },
+  "contact_info": [
+    {
+      "type": "email",
+      "label": "Email",
+      "value": "lolo@example.com",
+      "icon": "email"
+    },
+    {
+      "type": "location",
+      "label": "Ubicación",
+      "value": "España",
+      "icon": "location"
+    },
+    {
+      "type": "linkedin",
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/lologonzalez",
+      "icon": "linkedin"
+    }
+  ]
+}

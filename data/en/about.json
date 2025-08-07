@@ -1,0 +1,14 @@
+{
+  "title": "About Me",
+  "content": [
+    "I am a backend software engineer with a diverse background spanning from university research to educational video game development and virtual reality applications.",
+    "My experience focuses on the Java ecosystem and Spring Boot, where I have developed scalable and robust architectures for various enterprise applications.",
+    "I am passionate about technology as a tool to solve complex problems and create innovative digital experiences that generate a positive impact."
+  ],
+  "highlights": [
+    "5+ years of backend development experience",
+    "Specialized in Java and Spring Framework",
+    "Experience with microservices architectures",
+    "Research in educational games and VR"
+  ]
+}
