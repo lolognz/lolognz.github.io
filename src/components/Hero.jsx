@@ -92,7 +92,13 @@ const Hero = () => {
             {heroData.subtitle}
           </p>
           
-          <p style={{ fontSize: '1rem', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
+          <p style={{ 
+            fontSize: '1rem', 
+            maxWidth: '600px', 
+            margin: '0 auto 3rem',
+            color: 'rgba(255, 255, 255, 0.9)',
+            lineHeight: '1.6'
+          }}>
             {heroData.description}
           </p>
 

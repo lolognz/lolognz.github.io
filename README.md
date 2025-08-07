@@ -1,157 +1,190 @@
-# Web Personal de Lolo González
+# Portfolio Personal de Lolo González
 
-Este repositorio contiene el esqueleto de tu página web personal de una sola página (one‑page scroll), publicada en GitHub Pages, desarrollada con **React + Vite**. La página carga su contenido dinámicamente a partir de archivos JSON para que puedas editar la información sin tocar código.
+Una página web personal moderna y minimalista desarrollada con **React + Vite**, optimizada para **GitHub Pages**. La página presenta mi trayectoria como Ingeniero de Software Backend de forma dinámica e interactiva.
 
----
-
-## 1. Descripción del proyecto
-
-**Objetivo**: Crear una web personal minimalista y techy que muestre tu trayectoria como ingeniero de software backend.
-
-**Secciones principales**:
-
-* **Hero**: nombre, título profesional, selector de idioma, enlaces a LinkedIn y GitHub, botones de descarga de CV y scroll a Proyectos.
-* **About Me**: breve texto de tu carrera (investigación universitaria, videojuegos educativos, VR, backend Java/Spring).
-* **Descarga de CV**: botón para descargar PDF.
-* **Skills**: gráfico de barras (0–10) con tus competencias.
-* **Proyectos Destacados**: tarjetas 3D giratorias con imagen, título y descripción breve.
-* **Blog** (placeholder): espacio para futuros artículos/tutoriales.
-* **Contacto**: formulario sencillo (Formspree o similar) y enlaces de contacto.
-* **Footer**: navegación rápida y copyright.
+🌐 **Sitio web**: [https://lolognz.github.io](https://lolognz.github.io)
 
 ---
 
-## 2. Tecnologías y librerías
+## 📋 ¿Qué encontrarás en esta web?
 
-* **Framework**: React con Vite.
-* **i18n**: `react-i18next` para internacionalización (ES/EN).
-* **Fetch**: API nativa para cargar JSON según el idioma seleccionado.
-* **Animaciones en scroll**: `react-intersection-observer` o hook propio.
-* **Rotación de tarjetas**: [vanilla-tilt.js](https://github.com/micku7zu/vanilla-tilt.js) integrado en componentes.
+La página está estructurada como una **single-page application** con las siguientes secciones:
 
-**Ventajas de React + Vite**:
+### 🏠 **Hero Section**
+- Presentación principal con nombre y título profesional
+- Selector de idioma (Español/Inglés)
+- Enlaces a redes sociales (LinkedIn, GitHub)
+- Botones de descarga de CV y navegación
 
-* Arranque y recarga ultrarrápida.
-* Estructura en componentes clara y mantenible.
-* Fácil integración de futuras secciones (blog con MDX, dark mode, etc.).
+### 👨‍💻 **About Me**
+- Descripción de mi trayectoria profesional
+- Experiencia en investigación universitaria, videojuegos educativos, VR y backend
+
+### 🛠️ **Skills**
+- Gráfico de barras interactivo con mis competencias técnicas
+- Niveles del 0 al 10 para cada tecnología/habilidad
+
+### 🚀 **Proyectos Destacados**
+- Tarjetas 3D giratorias con efectos visuales
+- Descripción de proyectos más relevantes
+- Enlaces a GitHub y demos
+
+### 📝 **Blog** 
+- Sección preparada para futuros artículos y tutoriales
+- Actualmente como placeholder
+
+### 📧 **Contacto**
+- Formulario de contacto funcional
+- Enlaces directos de contacto
 
 ---
 
-## 3. Estructura de carpetas
+## 🚀 Despliegue en Local
+
+### Requisitos previos
+- Node.js (versión 18 o superior)
+- npm
+
+### Instrucciones
 
 ```bash
-repo-root/
-├── data/
-│   ├── en/             # JSON en inglés
-│   │   ├── hero.json
-│   │   ├── about.json
-│   │   ├── cv.json
-│   │   ├── skills.json
-│   │   ├── projects.json
-│   │   ├── blog.json   # placeholder inicial
-│   │   └── contact.json
-│   └── es/             # JSON en español
-│       ├── hero.json
-│       ├── about.json
-│       ├── cv.json
-│       ├── skills.json
-│       ├── projects.json
-│       ├── blog.json   # placeholder inicial
-│       └── contact.json
-├── public/
-│   └── assets/
-│       ├── images/
-│       ├── svg/
-│       └── cv.pdf
-├── src/
-│   ├── components/
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── CVDownload.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Blog.jsx
-│   │   ├── Contact.jsx
-│   │   └── Footer.jsx
-│   ├── i18n.js        # configuración react-i18next
-│   ├── App.jsx
-│   └── main.jsx
-├── .gitignore
-└── README.md
+# 1. Clonar el repositorio
+git clone https://github.com/lolognz/lolognz.github.io.git
+cd lolognz.github.io
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Ejecutar en modo desarrollo
+npm run dev
+
+# 4. Abrir en el navegador
+# http://localhost:5173/lolognz.github.io/
+```
+
+### Comandos disponibles
+
+```bash
+npm run dev      # Servidor de desarrollo
+npm run build    # Build de producción
+npm run preview  # Previsualizar build local
+npm run lint     # Verificar código
 ```
 
 ---
 
-## 4. Internacionalización (ES/EN)
+## ✏️ Cómo editar el contenido
 
-1. Instala y configura `react-i18next` en `src/i18n.js`.
-2. Agrupa las rutas de los JSON en namespaces: `common`, `hero`, `about`, etc.
-3. En cada componente, usa el hook `useTranslation()` para acceder a `t('hero.name')`, etc.
-4. Incluye un selector de idioma en `Hero.jsx` que cambie entre `es` y `en` y actualice la tienda de i18n.
+### 📁 Estructura de contenido
 
----
+Todo el contenido de la página se gestiona a través de archivos JSON en la carpeta `data/`:
 
-## 5. Ejemplos de JSON (data/es/hero.json y data/en/hero.json)
+```
+data/
+├── es/                 # Contenido en español
+│   ├── hero.json      # Sección principal
+│   ├── about.json     # Sobre mí
+│   ├── skills.json    # Habilidades
+│   ├── projects.json  # Proyectos
+│   ├── blog.json      # Blog
+│   └── contact.json   # Contacto
+└── en/                # Contenido en inglés
+    ├── hero.json      # (misma estructura)
+    ├── about.json
+    ├── skills.json
+    ├── projects.json
+    ├── blog.json
+    └── contact.json
+```
+
+### 🔧 Cómo hacer cambios
+
+1. **Editar información personal**: Modifica `data/es/hero.json` y `data/en/hero.json`
+2. **Actualizar habilidades**: Edita `data/es/skills.json` y `data/en/skills.json`
+3. **Agregar proyectos**: Modifica `data/es/projects.json` y `data/en/projects.json`
+4. **Cambiar información de contacto**: Edita `data/es/contact.json` y `data/en/contact.json`
+
+### 📄 Ejemplo de edición - Hero Section
 
 ```json
 {
-  "hero": {
-    "name": "Lolo González",
-    "title": "Ingeniero de Software Backend",
-    "social": [
-      { "name": "LinkedIn", "icon": "linkedin.svg", "url": "https://linkedin.com/in/lologonzalez" },
-      { "name": "GitHub",   "icon": "github.svg",   "url": "https://github.com/lologonzalez" }
-    ],
-    "ctas": [
-      { "text": "Descargar CV", "url": "/assets/cv/LoloGonzalez_CV.pdf" },
-      { "text": "Ver Proyectos", "scrollTo": "projects" }
-    ]
-  }
+  "name": "Tu Nombre",
+  "title": "Tu Título Profesional",
+  "subtitle": "Tu especialización",
+  "description": "Descripción personal",
+  "social": [
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://linkedin.com/in/tuperfil"
+    }
+  ],
+  "ctas": [
+    {
+      "text": "Descargar CV",
+      "url": "/assets/cv.pdf",
+      "type": "primary"
+    }
+  ]
 }
 ```
 
----
+### 📎 Subir archivos (CV, imágenes, etc.)
 
-## 6. Instalación y despliegue
-
-```bash
-# Clonar el repositorio:
-git clone https://github.com/tu-usuario/tu-web-personal.git
-cd tu-web-personal
-# Instalar dependencias:
-npm install
-# Desarrollo:
-npm run dev
-# Generar build estático:
-npm run build
-# Desplegar en GitHub Pages:
-# - Configura en Settings → Pages apuntando a la carpeta `dist/` o branch `gh-pages`.
-```
+- **CV**: Coloca tu archivo PDF en `public/assets/cv.pdf`
+- **Imágenes**: Agrega imágenes en `public/assets/images/`
+- **Iconos**: Coloca iconos SVG en `public/assets/svg/`
 
 ---
 
-## 7. Uso y edición de contenido
+## 🚀 Despliegue automático en GitHub Pages
 
-1. Edita los JSON en `data/es/` y `data/en/`.
-2. Añade o reemplaza imágenes y PDF en `public/assets`.
-3. Modifica o añade componentes en `src/components` según necesites.
+### ✅ Configuración actual
+
+La página está configurada para **despliegue automático**:
+
+- Cada `git push` a la rama `main` activa el despliegue
+- GitHub Actions genera automáticamente el build
+- Se publica en `https://lolognz.github.io`
+
+### 🔄 Flujo de trabajo
+
+1. Edita los archivos JSON o sube nuevos assets
+2. Haz commit y push:
+   ```bash
+   git add .
+   git commit -m "Actualizar contenido"
+   git push origin main
+   ```
+3. GitHub Actions se encarga del resto automáticamente
+4. En ~2-3 minutos, los cambios están en vivo
+
+### 📊 Verificar despliegue
+
+- Ve a la pestaña **Actions** en GitHub para ver el progreso
+- Una vez completado, los cambios están en: `https://lolognz.github.io`
 
 ---
 
-## 8. Roadmap
+## 🛠️ Tecnologías utilizadas
 
-| Tarea                            | Estado      |
-| -------------------------------- | ----------- |
-| Setup React + Vite               | ✅ Completo  |
-| Configuración i18n               | ✅ Completo  |
-| Componentes básicos (Hero, etc.) | ✅ Completo  |
-| Skills con gráfico de barras     | ✅ Completo  |
-| Proyectos giratorios             | ✅ Completo  |
-| Blog (placeholder)               | ✅ Completo  |
-| Formulario de contacto           | ⬜ Pendiente |
-| Dark Mode                        | ⬜ Pendiente |
-| Tests y CI                       | ⬜ Pendiente |
+- **Frontend**: React 18 + Vite 5
+- **Internacionalización**: react-i18next (ES/EN)
+- **Animaciones**: react-intersection-observer
+- **Efectos 3D**: vanilla-tilt.js
+- **CI/CD**: GitHub Actions
+- **Hosting**: GitHub Pages (gratuito)
 
 ---
 
-¡Listo para codificar tu web personal con React + Vite! 🎉
+## 📞 Soporte
+
+Si necesitas ayuda con la página:
+
+1. 📧 **Email**: [contacto desde la web](https://lolognz.github.io)
+2. 💻 **GitHub Issues**: Para problemas técnicos
+3. 🔗 **LinkedIn**: [Mi perfil](https://linkedin.com/in/lologonzalez)
+
+---
+
+**¡Listo para personalizar tu portfolio!** 🎉
