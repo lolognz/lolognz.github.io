@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
+import { getDataPath } from '../utils/paths';
 
 const Blog = () => {
   const { i18n } = useTranslation();
@@ -14,7 +15,7 @@ const Blog = () => {
   useEffect(() => {
     const loadBlogData = async () => {
       try {
-        const response = await fetch(`/data/${i18n.language}/blog.json`);
+        const response = await fetch(getDataPath(i18n.language, 'blog.json'));
         const data = await response.json();
         setBlogData(data);
       } catch (error) {

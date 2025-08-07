@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
+import { getDataPath } from '../utils/paths';
 
 const SkillBar = ({ skill, index, inView }) => {
   const [animatedLevel, setAnimatedLevel] = useState(0);
@@ -80,7 +81,7 @@ const Skills = () => {
   useEffect(() => {
     const loadSkillsData = async () => {
       try {
-        const response = await fetch(`/data/${i18n.language}/skills.json`);
+        const response = await fetch(getDataPath(i18n.language, 'skills.json'));
         const data = await response.json();
         setSkillsData(data);
       } catch (error) {
