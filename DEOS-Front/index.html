@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DEOS Front</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="container header-inner">
+        <h1>DEOS Front</h1>
+        <nav class="nav-tabs">
+          <button data-target="#tab-process" class="tab active">Procesar Video</button>
+          <button data-target="#tab-classify" class="tab">Clasificar Texto</button>
+          <button data-target="#tab-videos" class="tab">Explorar Contenido</button>
+          <button data-target="#tab-pdf" class="tab">Ingesta PDF</button>
+          <button data-target="#tab-settings" class="tab">Ajustes</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="status-bar">
+        <div>
+          <span>API:</span>
+          <span id="api-status" class="status-dot status-unknown">Desconocido</span>
+          <span id="api-base"></span>
+        </div>
+        <div class="status-actions">
+          <button id="btn-check-api" class="btn btn-secondary">Probar conexión</button>
+        </div>
+      </section>
+
+      <section id="tab-process" class="tab-panel active">
+        <h2>Pipeline Completo</h2>
+        <form id="form-process" class="card form-grid">
+          <label>
+            URL de YouTube
+            <input type="url" id="process-url" placeholder="https://www.youtube.com/watch?v=..." required />
+          </label>
+          <label>
+            Tema (topic)
+            <input type="text" id="process-topic" placeholder="music" />
+          </label>
+          <label>
+            Nivel de resumen
+            <select id="process-level">
+              <option value="short">short</option>
+              <option value="medium" selected>medium</option>
+              <option value="detailed">detailed</option>
+            </select>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn">Procesar</button>
+          </div>
+        </form>
+        <div id="process-result" class="results"></div>
+      </section>
+
+      <section id="tab-classify" class="tab-panel">
+        <h2>Clasificar Texto</h2>
+        <form id="form-classify" class="card form-grid">
+          <label class="span-2">
+            Texto a clasificar
+            <textarea id="classify-text" rows="6" placeholder="Pega aquí el texto..."></textarea>
+          </label>
+          <label>
+            top_k
+            <input type="number" id="classify-topk" value="3" min="1" max="20" />
+          </label>
+          <label>
+            threshold
+            <input type="number" id="classify-threshold" value="0.1" step="0.05" min="0" max="1" />
+          </label>
+          <div class="form-actions span-2">
+            <button type="submit" class="btn">Clasificar</button>
+          </div>
+        </form>
+        <div id="classify-result" class="results"></div>
+      </section>
+
+      <section id="tab-videos" class="tab-panel">
+        <h2>Explorar Contenido</h2>
+        <form id="form-videos-filters" class="card form-grid">
+          <label>
+            skip
+            <input type="number" id="videos-skip" value="0" min="0" />
+          </label>
+          <label>
+            limit
+            <input type="number" id="videos-limit" value="10" min="1" max="100" />
+          </label>
+          <label>
+            topic
+            <input type="text" id="videos-topic" placeholder="music" />
+          </label>
+          <label>
+            tag
+            <input type="text" id="videos-tag" placeholder="pop" />
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn">Buscar</button>
+          </div>
+        </form>
+        <div id="videos-list" class="grid"></div>
+        <div id="video-detail" class="results"></div>
+      </section>
+
+      <section id="tab-pdf" class="tab-panel">
+        <h2>Ingesta de PDF</h2>
+        <form id="form-pdf" class="card form-grid">
+          <label class="span-2">
+            Archivo PDF
+            <input type="file" id="pdf-file" accept="application/pdf" required />
+          </label>
+          <label>
+            Tema (topic)
+            <input type="text" id="pdf-topic" placeholder="default" />
+          </label>
+          <label>
+            Nivel de resumen
+            <select id="pdf-level">
+              <option value="short" selected>short</option>
+              <option value="medium">medium</option>
+              <option value="detailed">detailed</option>
+            </select>
+          </label>
+          <div class="form-actions span-2">
+            <button type="submit" class="btn">Procesar PDF</button>
+          </div>
+        </form>
+        <div id="pdf-result" class="results"></div>
+      </section>
+
+      <section id="tab-settings" class="tab-panel">
+        <h2>Ajustes</h2>
+        <div class="card">
+          <p><strong>Base de la API:</strong> <span id="settings-api-base"></span></p>
+          <p>
+            Este frontend lee la configuración desde <code>config.json</code>. Para cambiar de entorno (local, preproducción, producción):
+          </p>
+          <ol>
+            <li>Edita <code>DEOS-Front/config.json</code> y ajusta <code>API_BASE_URL</code>.</li>
+            <li>Recarga la página.</li>
+          </ol>
+          <p>Para GitHub Pages, usa una URL <code>https</code> y asegúrate de que la API permita CORS.</p>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
