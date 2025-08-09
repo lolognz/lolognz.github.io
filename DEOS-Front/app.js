@@ -57,7 +57,7 @@ function buildQuery(params) {
 
 async function apiFetch(path, options = {}) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), options.timeoutMs ?? 60000);
+  const timeout = setTimeout(() => controller.abort(), options.timeoutMs ?? 1000 * 60 * 30);
   const res = await fetch(`${CONFIG.API_BASE_URL}${path}`, {
     ...options,
     signal: controller.signal,
@@ -233,18 +233,19 @@ function wireActions() {
     // feedback UI
     btn.disabled = true;
     form.setAttribute('aria-busy', 'true');
-    showModal("Estamos procesando tu video. Este proceso puede tardar entre 15 y 45 segundos.", "Procesando video");
+    showModal("Estamos procesando tu video. Este proceso puede tardar varios minutos para contenidos largos. Puedes dejar esta pestaña abierta.", "Procesando video");
 
-    // limpiar campos
+    // limpiar campos (inmediato)
     urlInput.value = "";
     topicInput.value = "";
-    levelSelect.value = levelSelect.value || "medium";
+    levelSelect.value = "medium";
 
     try {
       const result = await apiFetch("/process", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, topic, summary_level: level })
+        body: JSON.stringify({ url, topic, summary_level: level }),
+        timeoutMs: 1000 * 60 * 30 // 30 minutos
       });
       renderProcessResult(result);
       updateModal("Procesamiento completado. Revisa los resultados debajo.", "Completado");
