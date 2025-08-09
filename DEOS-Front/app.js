@@ -352,6 +352,7 @@ function wireActions() {
 
 (async function init() {
   wireTabs();
+  hideModal();
   await loadConfig();
   // override por query string ?api=https://...
   try {
