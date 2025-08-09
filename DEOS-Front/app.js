@@ -31,6 +31,22 @@ function setApiStatus(status, text) {
   else el.classList.add("status-unknown");
 }
 
+function showModal(message = "Procesando…", title = "Procesando…") {
+  const modal = document.getElementById("modal");
+  document.getElementById("modal-title").textContent = title;
+  document.getElementById("modal-text").textContent = message;
+  modal.classList.remove("hidden");
+}
+
+function updateModal(message, title) {
+  if (title) document.getElementById("modal-title").textContent = title;
+  if (message !== undefined) document.getElementById("modal-text").textContent = message;
+}
+
+function hideModal() {
+  document.getElementById("modal").classList.add("hidden");
+}
+
 function buildQuery(params) {
   const p = Object.entries(params)
     .filter(([, v]) => v !== undefined && v !== null && v !== "")
@@ -60,7 +76,8 @@ async function apiFetch(path, options = {}) {
   }
   const contentType = res.headers.get("content-type") || "";
   if (contentType.includes("application/json")) return res.json();
-  return res.text();
+  const text = await res.text();
+  try { return JSON.parse(text); } catch (_) { return text; }
 }
 
 function validateYouTubeUrl(url) {
@@ -193,16 +210,36 @@ async function checkApi() {
 
 function wireActions() {
   document.getElementById("btn-check-api").addEventListener("click", checkApi);
+  document.getElementById("modal-close").addEventListener("click", hideModal);
 
   document.getElementById("form-process").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const url = document.getElementById("process-url").value.trim();
-    const topic = document.getElementById("process-topic").value.trim() || undefined;
-    const level = document.getElementById("process-level").value;
+    const form = e.currentTarget;
+    const btn = form.querySelector('button[type="submit"]');
+    const urlInput = document.getElementById("process-url");
+    const topicInput = document.getElementById("process-topic");
+    const levelSelect = document.getElementById("process-level");
+
+    const url = urlInput.value.trim();
+    const topic = topicInput.value.trim() || undefined;
+    const level = levelSelect.value;
+
     if (!validateYouTubeUrl(url)) {
       showToast("URL de YouTube inválida", "error");
+      urlInput.focus();
       return;
     }
+
+    // feedback UI
+    btn.disabled = true;
+    form.setAttribute('aria-busy', 'true');
+    showModal("Estamos procesando tu video. Este proceso puede tardar entre 15 y 45 segundos.", "Procesando video");
+
+    // limpiar campos
+    urlInput.value = "";
+    topicInput.value = "";
+    levelSelect.value = levelSelect.value || "medium";
+
     try {
       const result = await apiFetch("/process", {
         method: "POST",
@@ -210,18 +247,29 @@ function wireActions() {
         body: JSON.stringify({ url, topic, summary_level: level })
       });
       renderProcessResult(result);
-      showToast("Procesamiento completado", "success");
+      updateModal("Procesamiento completado. Revisa los resultados debajo.", "Completado");
     } catch (err) {
-      showToast(`Error: ${err.message}`, "error");
+      updateModal(`Se produjo un error: ${err.message}`, "Error");
+    } finally {
+      btn.disabled = false;
+      form.setAttribute('aria-busy', 'false');
     }
   });
 
   document.getElementById("form-classify").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const text = document.getElementById("classify-text").value.trim();
+    const form = e.currentTarget;
+    const btn = form.querySelector('button[type="submit"]');
+    const textArea = document.getElementById("classify-text");
+    const text = textArea.value.trim();
     const top_k = Number(document.getElementById("classify-topk").value);
     const threshold = Number(document.getElementById("classify-threshold").value);
-    if (!text) { showToast("Ingresa un texto", "error"); return; }
+    if (!text) { showToast("Ingresa un texto", "error"); textArea.focus(); return; }
+
+    btn.disabled = true;
+    form.setAttribute('aria-busy', 'true');
+    showModal("Clasificando texto…", "Clasificar");
+
     try {
       const result = await apiFetch("/classify", {
         method: "POST",
@@ -229,9 +277,12 @@ function wireActions() {
         body: JSON.stringify({ text, top_k, threshold })
       });
       renderClassifyResult(result);
-      showToast("Clasificación lista", "success");
+      updateModal("Clasificación lista.", "Completado");
     } catch (err) {
-      showToast(`Error: ${err.message}`, "error");
+      updateModal(`Error: ${err.message}`, "Error");
+    } finally {
+      btn.disabled = false;
+      form.setAttribute('aria-busy', 'false');
     }
   });
 
@@ -265,10 +316,19 @@ function wireActions() {
 
   document.getElementById("form-pdf").addEventListener("submit", async (e) => {
     e.preventDefault();
+    const formEl = e.currentTarget;
+    const btn = formEl.querySelector('button[type="submit"]');
     const file = document.getElementById("pdf-file").files[0];
-    const topic = document.getElementById("pdf-topic").value.trim() || undefined;
-    const level = document.getElementById("pdf-level").value;
+    const topicEl = document.getElementById("pdf-topic");
+    const levelEl = document.getElementById("pdf-level");
+    const topic = topicEl.value.trim() || undefined;
+    const level = levelEl.value;
     if (!file) { showToast("Selecciona un PDF", "error"); return; }
+
+    btn.disabled = true;
+    formEl.setAttribute('aria-busy', 'true');
+    showModal("Procesando PDF…", "PDF");
+
     const form = new FormData();
     form.append("file", file);
     if (topic) form.append("topic", topic);
@@ -276,9 +336,16 @@ function wireActions() {
     try {
       const result = await apiFetch("/ingest/pdf", { method: "POST", body: form });
       renderPdfResult(result);
-      showToast("PDF procesado", "success");
+      updateModal("PDF procesado.", "Completado");
+      // limpiar campos
+      document.getElementById("pdf-file").value = "";
+      topicEl.value = "";
+      levelEl.value = levelEl.value || "short";
     } catch (err) {
-      showToast(`Error: ${err.message}`, "error");
+      updateModal(`Error: ${err.message}`, "Error");
+    } finally {
+      btn.disabled = false;
+      formEl.setAttribute('aria-busy', 'false');
     }
   });
 }
