@@ -78,12 +78,12 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       {/* Project Content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: '0' }}>
+      <div style={{ flex: 1, display: 'grid', gridTemplateRows: 'auto 1fr auto', minHeight: '0' }}>
         <h3 style={{ marginBottom: '1rem', color: 'var(--primary-color)' }}>
           {project.title}
         </h3>
 
-        <div style={{ flex: 1, minHeight: '0', overflowY: 'auto', paddingRight: '0.25rem' }}>
+        <div style={{ minHeight: 0, overflowY: 'auto', paddingRight: '0.25rem' }}>
           <p style={{ 
             fontSize: '0.9rem', 
             lineHeight: '1.6', 
@@ -121,8 +121,7 @@ const ProjectCard = ({ project, index }) => {
         {/* Links */}
         <div style={{ 
           display: 'flex', 
-          gap: '1rem',
-          marginTop: 'auto'
+          gap: '1rem'
         }}>
           {project.github && (
             <a
