@@ -56,7 +56,7 @@ const ProjectCard = ({ project, index }) => {
         transformStyle: 'preserve-3d',
         cursor: 'pointer',
         overflow: 'hidden',
-        height: '400px',
+        height: '520px',
         display: 'flex',
         flexDirection: 'column'
       }}
