@@ -42,3 +42,6 @@ code{background:#0b1220;border:1px solid #1f2937;border-radius:6px;padding:0 6px
 .spinner{width:28px;height:28px;border:3px solid #334155;border-top-color:var(--primary);border-radius:50%;animation:spin .9s linear infinite;margin-bottom:10px}
 @keyframes spin{to{transform:rotate(360deg)}}
 .modal.hidden{display:none}
+.form-grid select{appearance:none;-webkit-appearance:none;-moz-appearance:none;position:relative;background-color:#0b1220;color:var(--text);border:1px solid #223047;border-radius:8px;padding:10px 36px 10px 10px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7l5 5 5-5' stroke='%23a3adc2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.form-grid select:focus{outline:2px solid var(--primary);outline-offset:1px}
+.form-grid option{color:#e5e7eb;background:#0b1220}
