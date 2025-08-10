@@ -78,42 +78,43 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       {/* Project Content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: '0' }}>
         <h3 style={{ marginBottom: '1rem', color: 'var(--primary-color)' }}>
           {project.title}
         </h3>
-        
-        <p style={{ 
-          fontSize: '0.9rem', 
-          lineHeight: '1.6', 
-          marginBottom: '1rem',
-          flex: 1
-        }}>
-          {project.description}
-        </p>
 
-        {/* Technologies */}
-        <div style={{ marginBottom: '1rem' }}>
-          <div style={{ 
-            display: 'flex', 
-            flexWrap: 'wrap', 
-            gap: '0.5rem'
+        <div style={{ flex: 1, minHeight: '0', overflowY: 'auto', paddingRight: '0.25rem' }}>
+          <p style={{ 
+            fontSize: '0.9rem', 
+            lineHeight: '1.6', 
+            marginBottom: '1rem'
           }}>
-            {project.technologies.map((tech, techIndex) => (
-              <span
-                key={techIndex}
-                style={{
-                  padding: '0.25rem 0.5rem',
-                  backgroundColor: 'var(--bg-secondary)',
-                  color: 'var(--primary-color)',
-                  fontSize: '0.8rem',
-                  borderRadius: '0.25rem',
-                  border: '1px solid var(--border-color)'
-                }}
-              >
-                {tech}
-              </span>
-            ))}
+            {project.description}
+          </p>
+
+          {/* Technologies */}
+          <div style={{ marginBottom: '1rem' }}>
+            <div style={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              gap: '0.5rem'
+            }}>
+              {project.technologies.map((tech, techIndex) => (
+                <span
+                  key={techIndex}
+                  style={{
+                    padding: '0.25rem 0.5rem',
+                    backgroundColor: 'var(--bg-secondary)',
+                    color: 'var(--primary-color)',
+                    fontSize: '0.8rem',
+                    borderRadius: '0.25rem',
+                    border: '1px solid var(--border-color)'
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
