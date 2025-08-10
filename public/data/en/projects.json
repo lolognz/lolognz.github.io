@@ -3,12 +3,12 @@
   "projects": [
     {
       "id": 1,
-      "title": "Enterprise Management System",
+      "title": "DEOS Project",
       "description": "Robust backend application developed with Spring Boot for enterprise resource management, including scalable REST APIs and microservices architecture.",
       "technologies": ["Java", "Spring Boot", "MySQL", "Docker", "AWS"],
       "image": "/assets/images/project1.jpg",
       "github": "https://github.com/lolognz/enterprise-management",
-      "demo": "https://demo.enterprise-management.com"
+      "demo": "http://localhost:5000/DEOS-Front/index.html"
     },
     {
       "id": 2,
